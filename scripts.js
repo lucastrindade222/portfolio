@@ -20,11 +20,19 @@ Habilidades e Ferramentas:
 `;
 
 let index = 0;
+const terminalOutput = document.getElementById("terminal-output");
+
 function digitarTexto() {
     if (index < texto.length) {
-        document.getElementById("terminal-output").textContent += texto.charAt(index);
+        terminalOutput.innerHTML += texto.charAt(index);
+
+        // Ajuste de responsividade: Quebrando linha automaticamente conforme largura
+        terminalOutput.style.wordBreak = "break-word";
+        terminalOutput.style.overflowWrap = "break-word";
+        terminalOutput.style.whiteSpace = "normal";
+
         index++;
-        setTimeout(digitarTexto, 50); // Ajuste o tempo para controlar a velocidade da digitação
+        setTimeout(digitarTexto, 50); // Controla a velocidade da digitação
     }
 }
 
